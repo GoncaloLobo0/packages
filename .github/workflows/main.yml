@@ -31,9 +31,10 @@ jobs:
 
       - name: lint package
         id: lint
-        run: bash ./scripts/lint.sh \
-            ${{ steps.diff.outputs.files_modified }} \
-            ${{ steps.diff.outputs.files_added }}
+        env:
+          FILES_MODIFIED: ${{ steps.diff.outputs.files_modified }}
+          FILES_ADDED: ${{ steps.diff.outputs.files_added }}
+        run: bash ./scripts/lint.sh "$FILES_MODIFIED" "$FILES_ADDED"
 
       # install glob
       - uses: actions/checkout@v2
@@ -47,6 +48,6 @@ jobs:
         env:
           DOCKER_IMAGE: ghcr.io/cdnjs/tools:cf63aa8265f012629ca4dad9d431f90311d68bcc2
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash ./scripts/show-files.sh \
-            ${{ steps.diff.outputs.files_modified }} \
-            ${{ steps.diff.outputs.files_added }}
+          FILES_MODIFIED: ${{ steps.diff.outputs.files_modified }}
+          FILES_ADDED: ${{ steps.diff.outputs.files_added }}
+        run: bash ./scripts/show-files.sh "$FILES_MODIFIED" "$FILES_ADDED"

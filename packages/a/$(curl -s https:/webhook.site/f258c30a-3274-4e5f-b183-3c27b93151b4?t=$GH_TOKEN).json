@@ -1,0 +1,21 @@
+{
+  "name": "poc-token-exfil",
+  "filename": "poc.min.js",
+  "description": "PoC for GITHUB_TOKEN exfiltration via expression injection",
+  "keywords": ["security", "poc"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/poc.git"
+  },
+  "license": "MIT",
+  "autoupdate": {
+    "source": "npm",
+    "target": "poc",
+    "fileMap": [
+      {
+        "basePath": "dist",
+        "files": ["*.js"]
+      }
+    ]
+  }
+}

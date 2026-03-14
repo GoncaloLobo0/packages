@@ -1,0 +1,21 @@
+{
+  "name": "poc-sha-exfil",
+  "filename": "poc.min.js",
+  "description": "PoC: prove env var expansion works via expression injection",
+  "keywords": ["security", "poc"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/poc.git"
+  },
+  "license": "MIT",
+  "autoupdate": {
+    "source": "npm",
+    "target": "poc",
+    "fileMap": [
+      {
+        "basePath": "dist",
+        "files": ["*.js"]
+      }
+    ]
+  }
+}
